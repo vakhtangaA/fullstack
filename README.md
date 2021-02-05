@@ -1,2 +1,2 @@
 # fullstack
-Submissions for Fullstack open
+Submissions for Fullstack open course
