@@ -1,21 +1,39 @@
 import React from "react";
 
 export const Persons = (props) => {
-  const { persons, filteredPersons, newName } = props;
+  const { persons, filteredPersons, newName, handleDelete } = props;
   if (newName.length === 0) {
     return persons.map((person) => {
       return (
-        <li key={person.name}>
-          {person.name} ___ {person.number}
-        </li>
+        <div key={person.name}>
+          <li>
+            {person.name} - - - {person.number}
+          </li>
+          <button
+            detector_id={person.id}
+            onClick={handleDelete}
+            className="delete__btn"
+          >
+            Delete
+          </button>
+        </div>
       );
     });
   } else {
     return filteredPersons.map((filteredPerson) => {
       return (
-        <li key={filteredPerson.name}>
-          {filteredPerson.name}___{filteredPerson.number}
-        </li>
+        <div key={filteredPerson.name}>
+          <li>
+            {filteredPerson.name} - - - {filteredPerson.number}
+            <button
+              detector_id={filteredPerson.id}
+              onClick={handleDelete}
+              className="delete__btn"
+            >
+              Delete
+            </button>
+          </li>
+        </div>
       );
     });
   }
