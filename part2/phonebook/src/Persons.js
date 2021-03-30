@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Persons = (props) => {
+export const Persons = props => {
   const { persons, filteredPersons, newName, handleDelete } = props;
   if (newName.length === 0) {
-    return persons.map((person) => {
+    return persons.map(person => {
       return (
         <div key={person.name}>
           <li>
@@ -12,7 +12,7 @@ export const Persons = (props) => {
           <button
             detector_id={person.id}
             onClick={handleDelete}
-            className="delete__btn"
+            className="btn btn-danger"
           >
             Delete
           </button>
@@ -20,7 +20,7 @@ export const Persons = (props) => {
       );
     });
   } else {
-    return filteredPersons.map((filteredPerson) => {
+    return filteredPersons.map(filteredPerson => {
       return (
         <div key={filteredPerson.name}>
           <li>
@@ -28,7 +28,7 @@ export const Persons = (props) => {
             <button
               detector_id={filteredPerson.id}
               onClick={handleDelete}
-              className="delete__btn"
+              className="btn btn-danger"
             >
               Delete
             </button>

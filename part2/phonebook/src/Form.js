@@ -7,7 +7,7 @@ export function Form(props) {
     handleName,
     filterName,
     newNumber,
-    handleNumber,
+    handleNumber
   } = props;
   return (
     <form onSubmit={handleSubmit}>
@@ -32,7 +32,7 @@ export function Form(props) {
       </div>
       <br></br>
       <div>
-        <button className="add" type="submit">
+        <button className="btn btn-success" type="submit">
           <b>Add contact</b>
         </button>
       </div>
