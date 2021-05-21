@@ -2,8 +2,8 @@ POST http://localhost:3003/api/blogs/
 Content-Type: application/json
 
 {
-    "title": "PHP",
-    "author": " Rasmus Lerdorf",
-    "url": "https://thenewstack.io/php-creator-rasmus-lerdorf-shares-lessons-learned-from-the-last-25-years/",
+    "title": "UseEffect",
+    "author": "Dan Abramov",
+    "url": "https://overreacted.io/a-complete-guide-to-useeffect/",
     "likes": 301
 }
