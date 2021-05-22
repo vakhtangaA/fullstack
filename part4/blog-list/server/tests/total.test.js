@@ -19,10 +19,10 @@ afterAll(async () => {
 });
 
 describe("total likes", () => {
-	test("sum of likes is 703", async () => {
+	test("sum of likes is 1004", async () => {
 		const response = await Blog.find({});
 		const result = listHelper.totalLikes(response);
-		expect(result).toBe(703);
+		expect(result).toBe(1004);
 	});
 });
 
@@ -31,12 +31,11 @@ describe("favorite blog", () => {
 		_id: "60633b594780df85d2171090",
 		title: "PHP",
 		author: " Rasmus Lerdorf",
-		url:
-			"https://thenewstack.io/php-creator-rasmus-lerdorf-shares-lessons-learned-from-the-last-25-years/",
+		url: "https://thenewstack.io/php-creator-rasmus-lerdorf-shares-lessons-learned-from-the-last-25-years/",
 		likes: 301,
 		__v: 0,
 	};
-	test("sum of likes is 703", async () => {
+	test("sum of likes is 1004", async () => {
 		const response = await Blog.find({});
 		const result = listHelper.favoriteBlog(response);
 		expect(JSON.stringify(result)).toEqual(JSON.stringify(mostLoved));
