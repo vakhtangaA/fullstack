@@ -1,12 +1,14 @@
 const mainRouter = require("express").Router();
 const Blog = require("../models/blog");
 
-mainRouter.delete("/:id", (request, response, next) => {
-	Blog.findByIdAndRemove(request.params.id)
-		.then(() => {
-			response.status(204).end();
-		})
-		.catch(error => next(error));
+mainRouter.delete("/:id", async (request, response, next) => {
+	await Blog.findByIdAndRemove(request.params.id);
+
+	try {
+		response.status(204).end();
+	} catch (err) {
+		return console.error(err);
+	}
 });
 
 mainRouter.put("/:id", (request, response) => {

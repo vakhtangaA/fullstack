@@ -3,6 +3,8 @@ const path = require("path");
 const express = require("express");
 const blogRouter = require("./controllers/blogs");
 const mainRouter = require("./controllers/main-router");
+const usersRouter = require("./controllers/users");
+const loginRouter = require("./controllers/login");
 const middleware = require("./utils/middleware");
 const app = express();
 const logger = require("./utils/logger");
@@ -27,14 +29,6 @@ mongoose
 		logger.error("error connecting to MongoDB: ", error.message);
 	});
 
-app.delete("/api/blogs/:id", (request, response, next) => {
-	Blog.findByIdAndRemove(request.params.id)
-		.then(() => {
-			response.status(204).end();
-		})
-		.catch(error => next(error));
-});
-
 app.use(express.static(path.resolve(__dirname, "../client/build")));
 app.use(cors());
 app.use(express.json());
@@ -43,6 +37,8 @@ app.use(middleware.requestLogger);
 
 app.use("/api/blogs", blogRouter);
 app.use("/", mainRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/login", loginRouter);
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
